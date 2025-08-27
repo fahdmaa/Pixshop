@@ -1,0 +1,97 @@
+:root {
+  --glow-color-1: rgba(69, 71, 157, 0.4);
+  --glow-color-2: rgba(74, 122, 145, 0.4);
+  --glow-color-3: rgba(144, 19, 254, 0.3);
+  --glow-color-4: rgba(5, 53, 70, 0.5);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0c1d;
+    overflow-x: hidden;
+}
+
+#background-animation {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  filter: blur(100px);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: hard-light;
+}
+
+.blob1 {
+  width: 50vmax;
+  height: 50vmax;
+  top: -10%;
+  left: -20%;
+  background: var(--glow-color-1);
+  animation: move 35s infinite alternate;
+}
+
+.blob2 {
+  width: 40vmax;
+  height: 40vmax;
+  top: 10%;
+  right: -15%;
+  background: var(--glow-color-2);
+  animation: move 30s infinite alternate-reverse;
+}
+
+.blob3 {
+  width: 30vmax;
+  height: 30vmax;
+  bottom: -15%;
+  left: 10%;
+  background: var(--glow-color-3);
+  animation: move 25s infinite alternate;
+}
+
+.blob4 {
+    width: 25vmax;
+    height: 25vmax;
+    bottom: 5%;
+    right: 5%;
+    background: var(--glow-color-4);
+    animation: move 40s infinite alternate-reverse;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(100px, -50px) scale(1.1);
+  }
+  100% {
+    transform: translate(-50px, 50px) scale(1);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ffffff, #bdc3c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Remove default blue outline on focus and use our own styles */
+*:focus {
+    outline: none;
+}
